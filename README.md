@@ -6,6 +6,6 @@ wbs Framework
 "repositories": [
     {
          "type": "vcs",
-         "url": "git@github.com:blessen/qs.git"
+         "url": "git@github.com:wbswbs/wbsfw.git"
      }
 ],
