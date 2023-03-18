@@ -1,0 +1,37 @@
+{
+    "name": "wbswbs/wbsfw",
+    "description": "A PHP Framework for PHP 8",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wolfgang Blessen",
+            "email": "wolfgang@blessen.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "wbsfw\\Framework\\": "Framework/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "ext-curl": "*",
+        "ext-ftp": "*",
+        "ext-gd": "*",
+        "ext-gettext": "*",
+        "ext-json": "*",
+        "ext-mysqli": "*",
+        "ext-pdo": "*",
+        "cboden/ratchet": "*",
+        "doctrine/orm": "*",
+        "doctrine/doctrine-bundle": "*",
+        "michelf/php-markdown": "*",
+        "monolog/monolog": "*",
+        "phpmailer/phpmailer": "*",
+        "psr/log": "2.0.*",
+        "smarty/smarty": "4.0.*",
+        "symfony/dotenv": "*",
+        "spipu/html2pdf": "*"
+    }
+}

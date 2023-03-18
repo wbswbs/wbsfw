@@ -13,6 +13,15 @@ A very basic PHP Framework, to set up Web-Projects fast
   - Smarty
   - Doctrine
 
+## Expected Structure
+
+  - bin
+  - documentation
+  - public/
+  - var/cache/
+  - var/data/
+  - var/tmp/
+  - tests
 
 ## Einbindung composer.json
 
