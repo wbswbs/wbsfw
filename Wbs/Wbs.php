@@ -14,7 +14,7 @@ use wbs\Framework\Json\Response;
 use wbs\Framework\Log\Log;
 use wbs\Framework\LogDB\LogDBController;
 use wbs\Framework\Mail\Smtp;
-use wbs\Framework\Websocket\Websocket;
+use wbs\Framework\WbsFactory;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Dotenv\Dotenv;
 
@@ -43,7 +43,7 @@ class Wbs
      *
      * @var string
      */
-    protected $version = '2.5.0';
+    protected $version = '1.0';
     /**
      * @var \wbs\Framework\Api\ApiController
      */
@@ -53,12 +53,6 @@ class Wbs
      */
     private $dotenv;
     /**
-     * Instanz der Job Klasse
-     *
-     * @var Auftrag
-     */
-    private $auftrag;
-    /**
      * Instanz der Klasse doctrine
      *
      * @var Doctrine
@@ -67,7 +61,7 @@ class Wbs
     /**
      * Instanz der Factory Klasse
      *
-     * @var wbsFactory
+     * @var WbsFactory
      */
     private $factory;
 
@@ -114,12 +108,6 @@ class Wbs
      */
     private $smarty;
     /**
-     * Instanz des Station Controllers
-     *
-     * @var \wbs\Framework\Station\StationController
-     */
-    private $station_controller;
-    /**
      * Instanz der SMTP Klasse
      *
      * @var Smtp
@@ -146,7 +134,7 @@ class Wbs
         if ($root_path) {
             $this->setRootPath($root_path);
         }
-        PHP_VERSION >= 5.6 or die('mdFramework requires PHP 5.6+');
+        PHP_VERSION >= 8.0 or die('mdFramework requires PHP 8.0+');
 
         $this->loadEnv(true);
         $this->url_absolute = $this->env(ENV::URL_ABSOLUTE);
@@ -386,22 +374,6 @@ class Wbs
             $this->dotenv = new Dotenv();
         }
         return $this->dotenv;
-    }
-
-    /**
-     * Instanz der Auftrag Klasse
-     *
-     * @return Auftrag
-     *
-     * @throws Exception
-     */
-    public function auftrag()
-    {
-        if (is_null($this->auftrag)) {
-            $this->auftrag = new Auftrag($this);
-        }
-        return $this->auftrag;
-
     }
 
     /**

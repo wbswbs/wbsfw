@@ -4,6 +4,7 @@ namespace wbs\Framework\Config;
 
 
 /**
+ * WBSFW
  * Class ENV
  * Konstanten für den Zugriff auf die ENV
  */

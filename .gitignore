@@ -1,2 +1,4 @@
 # PhpStorm Configuration
 .idea
+
+vendor/
