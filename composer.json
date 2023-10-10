@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "wbsfw\\Framework\\": "Wbs/"
+            "wbs\\Framework\\": "Wbs/"
         }
     },
     "require": {
