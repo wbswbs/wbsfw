@@ -1,6 +1,6 @@
 <?php
 
-namespace wbsfw\Framework;
+namespace wbs\Framework;
 
 use Composer\InstalledVersions;
 use Exception;
