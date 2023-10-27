@@ -71,7 +71,7 @@ class SmartyWrapper extends WbsClass
         $this->template_folder = (string)$template_folder;
         $this->caching = false;
 
-        $this->checkWartungsModus($md);
+        //$this->checkWartungsModus($md);
     }
 
     /**
