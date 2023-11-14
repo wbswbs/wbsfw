@@ -161,7 +161,7 @@ class Smtp extends WbsClass
 //        }catch(phpmailerException $e){
 //            $this->wbs()->log()->critical('[SMTP][PHPMailer Exception] '.$e->getMessage());
         } catch (\PHPMailer\PHPMailer\Exception $e) {
-            $this->wbs()->log()->critical('[SMTP][Exception] ' . $e->getMessage());
+            $this->wbs()->log()->critical('[SMTP][Exception] ' . $e->getMessage(),[],false);
         }
     }
 
@@ -190,9 +190,9 @@ class Smtp extends WbsClass
             $mail->AddAddress($data['sendTo']);
             $mail->Send();
         } catch (\PHPMailer\PHPMailer\Exception $e) {
-            $this->wbs()->log()->critical('[SMTP][PHPMailer Exception] ' . $e->getMessage());
+            $this->wbs()->log()->critical('[SMTP][PHPMailer Exception] ' . $e->getMessage(),[],false);
         } catch (Exception $e) {
-            $this->wbs()->log()->critical('[SMTP][Exception] ' . $e->getMessage());
+            $this->wbs()->log()->critical('[SMTP][Exception] ' . $e->getMessage(),[],false);
         }
     }
 

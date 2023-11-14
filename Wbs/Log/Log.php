@@ -277,9 +277,11 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function critical($message, array $context = []){
+    public function critical($message, array $context = [],bool $send_mail = true){
         $this->add('[CRITICAL] '.$message,$context);
-        $this->sendError('[CRITICAL]', $message,$context);
+        if($send_mail){
+            $this->sendError('[CRITICAL]', $message,$context);
+        }
     }
 
     /**
@@ -291,9 +293,11 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function error($message, array $context = []){
+    public function error($message, array $context = [],bool $send_mail = true){
         $this->add('[ERROR] '.$message,$context);
-        $this->sendError('[ERROR]', $message,$context);
+        if ($send_mail) {
+            $this->sendError('[ERROR]', $message, $context);
+        }
     }
 
     /**
