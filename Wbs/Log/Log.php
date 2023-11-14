@@ -387,11 +387,11 @@ class Log extends WbsClass implements LoggerInterface
         $context['wbsF:IP']              = Ip::calculateIP();
         // Server Variables
         $context['SERVER:PHP_SELF'] = $this->wbs()->getArrayValue('PHP_SELF',$_SERVER);
-        $context['SERVER:SCRIPT_FILENAME'] = $this->md()->getArrayValue('SCRIPT_FILENAME',$_SERVER);
-        $context['SERVER:HTTP_USER_AGENT'] = $this->md()->getArrayValue('HTTP_USER_AGENT',$_SERVER);
-        $context['SERVER:ROOT_PATH'] = $this->md()->getArrayValue('ROOT_PATH',$_SERVER);
-        $context['SERVER:USER'] = $this->md()->getArrayValue('USER',$_SERVER);
-        $context['SERVER:REQUEST_METHOD'] = $this->md()->getArrayValue('REQUEST_METHOD',$_SERVER);
+        $context['SERVER:SCRIPT_FILENAME'] = $this->wbs()->getArrayValue('SCRIPT_FILENAME',$_SERVER);
+        $context['SERVER:HTTP_USER_AGENT'] = $this->wbs()->getArrayValue('HTTP_USER_AGENT',$_SERVER);
+        $context['SERVER:ROOT_PATH'] = $this->wbs()->getArrayValue('ROOT_PATH',$_SERVER);
+        $context['SERVER:USER'] = $this->wbs()->getArrayValue('USER',$_SERVER);
+        $context['SERVER:REQUEST_METHOD'] = $this->wbs()->getArrayValue('REQUEST_METHOD',$_SERVER);
         $context['PHP:DATE'] = date('d.m.Y H:i:s');
 
 
@@ -402,8 +402,8 @@ class Log extends WbsClass implements LoggerInterface
                 $this->arrayOutput($context,0,$the_add);
         }
         $message .= "\n\n".$the_add;
-        $project = $this->md()->env(ENV::PROJECT_NAME)?:'N/A';
-        $this->md()->smtp()->sendMailToSiteAdmin(
+        $project = $this->wbs()->env(ENV::PROJECT_NAME)?:'N/A';
+        $this->wbs()->smtp()->sendMailToSiteAdmin(
             "[{$project}] {$level} Script Error",
             $message,
             false
