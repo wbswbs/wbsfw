@@ -21,13 +21,12 @@
 
 namespace wbs\Framework\Log;
 
-use \Exception;
+use Exception;
 use wbs\Framework\Config\ENV;
 use wbs\Framework\Ip\Ip;
 use wbs\Framework\WbsClass;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
-use Symfony\Component\HttpKernel\Tests\Fixtures\ExtensionNotValidBundle\ExtensionNotValidBundle;
 
 /**
  * Class log
@@ -246,7 +245,7 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function emergency($message, array $context = []){
+    public function emergency($message, array $context = []):void{
         $this->add('[EMERGENCY] '.$message);
 
     }
@@ -262,7 +261,7 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function alert($message, array $context = []){
+    public function alert($message, array $context = []):void{
         $this->add('[ALERT] '.$message,$context);
 
     }
@@ -277,7 +276,7 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function critical($message, array $context = [],bool $send_mail = true){
+    public function critical($message, array $context = [],bool $send_mail = true):void{
         $this->add('[CRITICAL] '.$message,$context);
         if($send_mail){
             $this->sendError('[CRITICAL]', $message,$context);
@@ -293,7 +292,7 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function error($message, array $context = [],bool $send_mail = true){
+    public function error($message, array $context = [],bool $send_mail = true):void{
         $this->add('[ERROR] '.$message,$context);
         if ($send_mail) {
             $this->sendError('[ERROR]', $message, $context);
@@ -311,7 +310,7 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function warning($message, array $context = []){
+    public function warning($message, array $context = []):void{
         $this->add('[WARNING] '.$message,$context);
         $this->sendError('[WARNING]', $message,$context);
 
@@ -325,7 +324,7 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function notice($message, array $context = []){
+    public function notice($message, array $context = []):void{
         $this->add('[NOTICE] '.$message,$context);
 
     }
@@ -340,7 +339,7 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function info($message, array $context = []){
+    public function info($message, array $context = []):void{
         $this->add('[INFO] '.$message,$context);
 
     }
@@ -352,7 +351,7 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function test($message, array $context = []){
+    public function test($message, array $context = []):void{
         $this->add('[TEST] '.$message,$context);
 
     }
@@ -365,7 +364,7 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function debug($message, array $context = []){
+    public function debug($message, array $context = []):void{
         $this->add('[DEBUG] '.$message,$context);
 
     }
@@ -379,7 +378,7 @@ class Log extends WbsClass implements LoggerInterface
      *
      * @return void
      */
-    public function log($level, $message, array $context = []){
+    public function log($level, $message, array $context = []):void{
         $this->add('['.$level.'] '.$message,$context);
     }
 
