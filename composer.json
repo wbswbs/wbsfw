@@ -1,6 +1,6 @@
 {
     "name": "wbswbs/wbsfw",
-    "description": "A PHP Framework for PHP 8",
+    "description": "A PHP Framework for PHP > 8.2",
     "minimum-stability": "stable",
     "license": "MIT",
     "authors": [
@@ -15,7 +15,7 @@
         }
     },
     "require": {
-        "php": "8.*",
+        "php": "8.2.*",
         "ext-curl": "*",
         "ext-ftp": "*",
         "ext-gd": "*",
