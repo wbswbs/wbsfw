@@ -51,20 +51,20 @@ class SmartyWrapper extends WbsClass
 
     /**
      * SmartyWrapper constructor.
-     * @param $md
+     * @param $wbs
      * @param string $template_path
      * @param string $template_cache_path
      * @param string $template_compile_path
      * @param string $template_folder The Folder in the Template Path for special Layouts
      * @throws \SmartyException
      */
-    public function __construct($md,
+    public function __construct($wbs,
                                 $template_path,
                                 $template_cache_path = '',
                                 $template_compile_path = '',
                                 $template_folder = '')
     {
-        parent::__construct($md);
+        parent::__construct($wbs);
         $this->template_path = $template_path;
         $this->template_cache_path = (string)$template_cache_path;
         $this->template_compile_path = (string)$template_compile_path;
@@ -217,13 +217,13 @@ class SmartyWrapper extends WbsClass
     }
 
     /**
-     * @param $md Wbs
+     * @param $wbs Wbs
      * @throws SmartyException
      */
-    private function checkWartungsModus($md)
+    private function checkWartungsModus($wbs)
     {
-        $devIps = explode(',', $md->env(ENV::EXCLUDE_WARTUNGS_MODUS));
-        if ($md->env(ENV::WARTUNGS_MODUS) === "true" && !in_array($md->factory()->getStation()->calculateIP(), $devIps)) {
+        $devIps = explode(',', $wbs->env(ENV::EXCLUDE_WARTUNGS_MODUS));
+        if ($wbs->env(ENV::WARTUNGS_MODUS) === "true" && !in_array($wbs->factory()->getStation()->calculateIP(), $devIps)) {
             $this->suppressNotices();
             $this->smarty()->display($this->template_path . '/default/wartung.tpl');
             $this->smarty->clearAllCache();

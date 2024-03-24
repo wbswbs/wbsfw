@@ -26,8 +26,8 @@ class LogController extends WbsClass{
     {
         $response = new Response();
         $response->setQuery(__CLASS__.' # '. __FUNCTION__);
-        $message = 'JS '.$this->md()->in('message');
-        $context = $this->md()->in('context');
+        $message = 'JS '.$this->wbs()->in('message');
+        $context = $this->wbs()->in('context');
 
         switch($action){
             case self::ACTION_ERROR:
@@ -49,6 +49,6 @@ class LogController extends WbsClass{
 
 
     function log(){
-        return $this->md()->log();
+        return $this->wbs()->log();
     }
 }

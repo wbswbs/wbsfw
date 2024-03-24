@@ -146,18 +146,18 @@ class Wbs
      *
      * @return string
      */
-    public function getMdFVersion(){
+    public function getWbsVersion(){
 
-        $mdf_version = 'Unknown Version';
+        $wbs_version = 'Unknown Version';
         try{
             if(!class_exists('Composer\\InstalledVersions')){
                 return 'Please update Composer';
             }
-            $mdf_version =  InstalledVersions::getPrettyVersion('wbs/framework');
-            return $mdf_version;
+            $wbs_version =  InstalledVersions::getPrettyVersion('wbs/framework');
+            return $wbs_version;
 
         }catch(\Exception $e){
-            return $mdf_version. $e->getMessage();
+            return $wbs_version. $e->getMessage();
         }
 
     }
@@ -202,13 +202,13 @@ class Wbs
     public function  getJsonConfig()
     {
 
-        $md_config = [
+        $wbs_config = [
             'APP_ENV' => $this->env('APP_ENV'),
             'URL_ABSOLUTE' => $this->env('URL_ABSOLUTE'),
             'ROOT_PATH' => $this->env('ROOT_PATH')
         ];
 
-        return json_encode($md_config);
+        return json_encode($wbs_config);
     }
 
     /**

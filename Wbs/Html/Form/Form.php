@@ -18,9 +18,9 @@ class Form extends WbsClass
 
     /**
      */
-    public function __construct($md)
+    public function __construct($wbs)
     {
-        parent::__construct($md);
+        parent::__construct($wbs);
 
         $this->country_list = [];
         $this->html_string = '';

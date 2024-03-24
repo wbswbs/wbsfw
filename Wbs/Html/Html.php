@@ -64,7 +64,7 @@ class Html extends WbsClass {
     public function form(){
 
         if(is_null($this->form)){
-            $this->form = new Form($this->md());
+            $this->form = new Form($this->wbs());
         }
         return $this->form;
     }
