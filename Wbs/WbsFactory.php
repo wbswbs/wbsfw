@@ -2,16 +2,13 @@
 
 namespace wbs\Framework;
 
+use wbs\Framework\Api\ApiController;
 use wbs\Framework\Db\MySql;
 use wbs\Framework\File\Verzeichnis;
 use wbs\Framework\Ftp\FtpParameter;
-use wbs\Framework\Google\Calendar;
 use wbs\Framework\Html\Html;
-use wbs\Framework\Json\ApiResponse;
 use wbs\Framework\Json\Json;
 use wbs\Framework\Json\Response;
-use wbs\Framework\Lieferanten\LieferantenController;
-use wbs\Framework\Liefertermin\Liefertermin;
 use wbs\Framework\Smarty\SmartyWrapper;
 use wbs\Framework\Caching\Cache;
 
@@ -26,80 +23,37 @@ class WbsFactory extends WbsClass
     /**
      * Return Instance of the API Reguest
      *
-     * @return \wbs\Framework\Api\ApiController
+     * @return ApiController
      */
-    public function getApi()
+    public function getApi():ApiController
     {
-        return new \wbs\Framework\Api\ApiController($this->wbs());
+        return new ApiController($this->wbs());
     }
 
     /**
      * @return FtpParameter
      */
-    public function getFtpParameter()
+    public function getFtpParameter():FtpParameter
     {
         return new FtpParameter();
     }
 
-    /**
-     * Not in use
-     * api/calendar.php is used now
-     *
-     * @return Calendar
-     */
-    public function getGoogleCalendar()
-    {
-
-        return new Calendar(
-            $this->wbs()->getConfigPath() . 'calendar.php'
-        );
-    }
-
-    /**
-     *
-     * @return \wbs\Framework\Html\Html
-     */
-    public function getHtml()
+    public function getHtml():Html
     {
         return new Html($this->wbs());
     }
-    /**
-     *
-     * @return \wbs\Framework\Json\Json
-     */
-    public function getJson()
+
+    public function getJson():Json
     {
         return new Json();
     }
 
-    /**
-     * @return Response
-     */
-    public function getJsonResponse()
+    public function getJsonResponse():Response
     {
         return new Response();
     }
 
-    /**
-     * @return LieferantenController
-     */
-    public function getLieferanten()
-    {
-        return new LieferantenController($this->wbs());
-    }
-    /**
-     * @return Liefertermin
-     */
-    public function getLiefertermin()
-    {
-
-        return new Liefertermin($this->wbs());
-    }
-
-    /**
-     * @return MySql
-     */
-    public function getMySql()
+    public function getMySql():MySql
     {
         return new MySql(
             $this->wbs()
@@ -155,34 +109,6 @@ class WbsFactory extends WbsClass
         $instance = '\wbs\\'.$controller_name.'\\'.$controller_name.'Controller';
         return new ${$instance}($this->wbs());
     }
-    /**
-     * Den Station Controller für das Station Projekt laden
-     *
-     * @return \wbs\Station\StationController
-     *
-     */
-    public function getStationController()
-    {
-        $class= 'wbs\\Station\\StationController';
-        if(!class_exists($class)){
-            throw new \Exception('Class does not exist: '.$class);
-        }
-        return new \wbs\Station\StationController($this->wbs());
-    }
-    /**
-     *
-     * @return \wbs\Station\Station
-     *
-     */
-    public function getStation()
-    {
-        $class= 'wbs\\Station\\Station';
-        if(!class_exists($class)){
-            throw new \Exception('Class does not exist: '.$class);
-        }
-        return new \wbs\Station\Station($this->wbs());
-    }
-
     /**
      * @param $filepath
      * @param $filename

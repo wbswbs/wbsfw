@@ -45,7 +45,11 @@ class ENV
     ###> Zugang und Konfiguration für die eigene API
     const API_SERVER_USER     = 'API_AUTH_USER';
     const API_SERVER_PASSWORD = 'API_AUTH_PASSWORD';
-    const API_DIR             = 'API_DIR';
+    const API_SERVER_URL      = 'API_SERVER_URL';
+    const API_SERVER_DIR      = 'API_SERVER_DIR';
+
+    const WARTUNGS_MODUS         = 'WARTUNGS_MODUS';
+    const EXCLUDE_WARTUNGS_MODUS = 'EXCLUDE_WARTUNGS_MODUS';
 
     /**
      *  Add this method to your class definition if you want an array of class constants
